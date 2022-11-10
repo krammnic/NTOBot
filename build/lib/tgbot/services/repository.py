@@ -1,4 +1,3 @@
-import pandas as pd
 from typing import List
 
 
@@ -25,12 +24,3 @@ class Repo:
             #     "select userid from tg_users",
             # )
         ]
-
-
-class CSVRepo:
-    def __init__(self, df):
-        self.df = df
-
-    def get_age_data(self):
-        num = (self.df['Age'] > 17).sum()
-        return num

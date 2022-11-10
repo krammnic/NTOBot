@@ -7,16 +7,10 @@ from tgbot.models.role import UserRole
 async def admin_start(m: Message):
     await m.reply("Hello, admin!")
 
-async def admin_help(m: Message):
-    await m.reply("Hello, admin!")
-
 
 def register_admin(dp: Dispatcher):
     dp.register_message_handler(
         admin_start, commands=["start"], state="*", role=UserRole.ADMIN,
-    )
-    dp.register_message_handler(
-        admin_help, commands=["help"], state="*", role=UserRole.ADMIN
     )
     # Either you can pass multiple roles:
     # dp.register_message_handler(

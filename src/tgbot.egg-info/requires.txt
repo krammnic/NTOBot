@@ -1,0 +1,8 @@
+aiogram~=2.21
+redis==4.3.*
+
+[lint]
+flake8
+
+[test]
+pytest

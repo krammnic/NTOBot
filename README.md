@@ -26,7 +26,7 @@ For development install it via command
 pip install -e .[test,lint]
 ```
 
-4. Create and fill `bot.ini` file ([example](bot.ini.example))
+4. Create and fill `bot.ini` file ([example](bot.ini))
 
 5. Start bot to check
 

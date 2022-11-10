@@ -1,7 +1,6 @@
 import asyncio
 import logging
 
-import pandas as pd
 from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage
@@ -17,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 def create_pool(user, password, database, host, echo):
-    return pd.read_csv('https://raw.githubusercontent.com/jorisvandenbossche/pandas-tutorial/master/data/titanic.csv')
+    raise NotImplementedError  # TODO check your db connector
 
 
 async def main():
@@ -26,14 +25,13 @@ async def main():
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     )
     logger.error("Starting bot")
-    config = load_config("/home/krammnic/PycharmProjects/NtoBot/ntobot/bot.ini")
+    config = load_config("bot.ini")
 
     if config.tg_bot.use_redis:
         storage = RedisStorage()
     else:
         storage = MemoryStorage()
-    # FixMe: No db pull
-    pool = create_pool(
+    pool = await create_pool(
         user=config.db.user,
         password=config.db.password,
         database=config.db.database,
